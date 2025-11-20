@@ -27,3 +27,12 @@ Misaligned access might:
 2. Clears the last 3 bits using bitwise AND with a mask.
    Example: ~(8 - 1) → ~7 → ...11111000.
 3. So ALIGN(x) always becomes a multiple of 8.
+
+## Memory Layout
+`typedef struct block {
+    size_t size;          // Size of the data/payload portion (not including header)
+    int free;             // 1 if free, 0 if allocated
+    struct block *next;   // Next block in the free list (used when the block is free)
+} block_t;
+#define BLOCK_SIZE sizeof(block_t)
+`
