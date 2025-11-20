@@ -23,7 +23,7 @@ Misaligned access might:
 
 - This formula:
 
-a. Adds 7 (ALIGNMENT - 1) to force a round-up.
-b. Clears the last 3 bits using bitwise AND with a mask.
+1. Adds 7 (ALIGNMENT - 1) to force a round-up.
+2. Clears the last 3 bits using bitwise AND with a mask.
    Example: ~(8 - 1) → ~7 → ...11111000.
-c. So ALIGN(x) always becomes a multiple of 8.
+3. So ALIGN(x) always becomes a multiple of 8.
